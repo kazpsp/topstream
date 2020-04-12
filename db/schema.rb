@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_232729) do
+ActiveRecord::Schema.define(version: 2020_04_12_214013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2020_04_11_232729) do
     t.decimal "price"
     t.string "title"
     t.integer "category_id"
+    t.integer "user_id"
+    t.date "event_date"
+    t.time "event_start_time"
+    t.time "event_end_time"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "purchase_id"
+    t.integer "buyer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,6 +53,12 @@ ActiveRecord::Schema.define(version: 2020_04_11_232729) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "jti", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "age"
+    t.string "country"
+    t.string "profile_image"
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,6 +1,6 @@
 class AddEventUserRelationsAndExtraFields < ActiveRecord::Migration[6.0]
   def change
-    add_column :events, :user_id, :integer
+    add_column :events, :user_id, :inte1ger
     add_column :events, :purchase_id, :integer
 
     add_column :events, :event_date, :date
@@ -11,6 +11,8 @@ class AddEventUserRelationsAndExtraFields < ActiveRecord::Migration[6.0]
     add_column :users, :last_name, :string
     add_column :users, :age, :string
     add_column :users, :country, :string
+    add_column :users, :profile_image, :string
+    add_column :users, :bio, :text
 
   end
 end
