@@ -1,7 +1,12 @@
 class CustomFailure < Devise::FailureApp
   def respond
-    def respond
       http_auth
-    end
+  end
+
+  def http_auth_body
+    {
+        sucess: false,
+        message: i18n_message
+    }.to_json
   end
 end
